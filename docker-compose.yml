@@ -1,104 +1,6 @@
+version: '3.8'
+
 services:
-  # Ocelot Gateway
-  charlie-gateway:
-    image: tobbelito/charlie-gateway:v20241217175906
-    container_name: charlie-gateway
-    ports:
-      - "5000:80" # Map port 80 inside the container to 5000 on your host
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - customer-api
-      - order-api
-      - product-api
-      - payment-service
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Customer API
-  customer-api:
-    image: mrfigge/charlie-customer-api:v20241213121412
-    container_name: customer-api
-    ports:
-      - "5001:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Customer Service
-  customer-service:
-    image: mrfigge/charlie-customer:v20241213112451
-    container_name: customer-service
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Order API
-  order-api:
-    image: antonmalm/charlie-order-api:v20241217121856
-    container_name: order-api
-    ports:
-      - "5002:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Order Service
-  order-service:
-    image: antonmalm/charlie-order:v20241217112114
-    container_name: order-service
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Product API
-  product-api:
-    image: mrfrolin/charlie-product-api:v20241218113129
-    container_name: product-api
-    ports:
-      - "5003:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Product Service
-  product-service:
-    image: mrfrolin/charlie-product:v20241213124907
-    container_name: product-service
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # Payment Service
-  payment-service:
-    image: tobbelito/charlie-payment:latest
-    container_name: payment-service
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
   # RabbitMQ Service
   rabbitmq-service:
     image: rabbitmq:3-management
@@ -109,6 +11,123 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  # Ocelot Gateway
+  charlie-gateway:
+    image: tobbelito/charlie-gateway:latest
+    container_name: charlie-gateway
+    ports:
+      - "5000:80" # Map port 80 inside the container to 5000 on your host
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+      customer-api:
+        condition: service_started
+      order-api:
+        condition: service_started
+      product-api:
+        condition: service_started
+      payment-service:
+        condition: service_started
+    networks:
+      - app-network
+
+  # Customer API
+  customer-api:
+    image: mrfigge/charlie-customer-api:latest
+    container_name: customer-api
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # Customer Service
+  customer-service:
+    image: mrfigge/charlie-customer:latest
+    container_name: customer-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # Order API
+  order-api:
+    image: antonmalm/charlie-order-api:latest
+    container_name: order-api
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # Order Service
+  order-service:
+    image: antonmalm/charlie-order:v20241217112114
+    container_name: order-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # Product API
+  product-api:
+    image: mrfrolin/charlie-product-api:latest
+    container_name: product-api
+    ports:
+      - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # Product Service
+  product-service:
+    image: mrfrolin/charlie-product:latest
+    container_name: product-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # Payment Service
+  payment-service:
+    image: tobbelito/charlie-payment:latest
+    container_name: payment-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
