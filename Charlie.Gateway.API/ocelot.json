@@ -1,17 +1,17 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000"
+    "BaseUrl": "http://localhost:5000/"
   },
   "Routes": [
     {
       "UpstreamPathTemplate": "/gateway/product",
-      "UpstreamHttpMethod": [ "POST" ],                 // ?? 
+      "UpstreamHttpMethod": [ "POST" ],
       "DownstreamPathTemplate": "/api/product",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "product-api", // ???
-          "Port": 80 // ???
+          "Host": "product-api", // Host of the downstream service (e.g., the API you are routing to)
+          "Port": 5001 // Ensure this is the correct port of the downstream service
         }
       ]
     }
