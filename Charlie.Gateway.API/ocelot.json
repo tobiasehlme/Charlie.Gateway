@@ -1,17 +1,17 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5001"
+    "BaseUrl": "http://localhost:5000"
   },
   "Routes": [
     {
-      "UpstreamPathTemplate": "/gateway/order",
-      "UpstreamHttpMethod": [ "PUT" ],                 // ?? 
-      "DownstreamPathTemplate": "/api/order",
+      "UpstreamPathTemplate": "/gateway/product",
+      "UpstreamHttpMethod": [ "POST" ],                 // ?? 
+      "DownstreamPathTemplate": "/api/product",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost", // ???
-          "Port": 5162        // ???
+          "Host": "product-api", // ???
+          "Port": 80 // ???
         }
       ]
     }
