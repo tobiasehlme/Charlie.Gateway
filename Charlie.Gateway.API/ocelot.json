@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "product-api",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 5003
         }
       ],
       "UpstreamPathTemplate": "/product",
@@ -17,8 +17,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "product-api",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 5003
         }
       ],
       "UpstreamPathTemplate": "/product/{id}",
