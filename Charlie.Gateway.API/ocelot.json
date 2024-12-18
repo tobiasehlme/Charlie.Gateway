@@ -5,7 +5,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Products",
+          "Host": "charlie-products",
           "Port": 80
         }
       ],
@@ -17,7 +17,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Products",
+          "Host": "charlie-products",
           "Port": 80
         }
       ],
@@ -29,7 +29,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Orders",
+          "Host": "charlie-orders",
           "Port": 80
         }
       ],
@@ -41,7 +41,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Orders",
+          "Host": "charlie-orders",
           "Port": 80
         }
       ],
@@ -53,7 +53,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Customers",
+          "Host": "charlie-customers",
           "Port": 80
         }
       ],
@@ -65,7 +65,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Customers",
+          "Host": "charlie-customers",
           "Port": 80
         }
       ],
@@ -77,7 +77,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Customers",
+          "Host": "charlie-customers",
           "Port": 80
         }
       ],
@@ -89,7 +89,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Payments",
+          "Host": "charlie-payments",
           "Port": 80
         }
       ],
@@ -101,7 +101,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Charlie.Payments",
+          "Host": "charlie-payments",
           "Port": 80
         }
       ],
