@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5003
+          "Host": "product-api",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/product",
@@ -17,8 +17,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5003
+          "Host": "product-api",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/product/{id}",
@@ -30,7 +30,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "order-api",
-          "Port": 5002
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/orders",
@@ -42,7 +42,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "order-api",
-          "Port": 5002
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/orders/{id}",
@@ -54,7 +54,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "customer-api",
-          "Port": 5003
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/customers",
@@ -66,7 +66,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "customer-api",
-          "Port": 5003
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/customers/{id}",
@@ -78,7 +78,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "customer-api",
-          "Port": 5003
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/customers/email/{email}",
