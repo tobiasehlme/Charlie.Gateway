@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   # Ocelot Gateway
   charlie-gateway:
-    image: tobbelito/charlie-gateway:v20241217171214
+    image: tobbelito/charlie-gateway:v20241217175906
     container_name: charlie-gateway
     ports:
       - "5000:80" # Map port 80 inside the container to 5000 on your host
@@ -92,7 +90,7 @@ services:
 
   # Payment Service
   payment-service:
-    image: tobbelito/charlie-payment:v20241217165808
+    image: tobbelito/charlie-payment:latest
     container_name: payment-service
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
