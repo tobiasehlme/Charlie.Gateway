@@ -1,6 +1,24 @@
 version: '3.8'
 
 services:
+  # RabbitMQ Service
+  rabbitmq-service:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-container
+    ports:
+      - "5672:5672"   # RabbitMQ connection
+      - "15672:15672" # Management console
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
   # Ocelot Gateway
   charlie-gateway:
     image: tobbelito/charlie-gateway:latest
@@ -10,11 +28,16 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - customer-api
-      - order-api
-      - product-api
-      - payment-service
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
+      customer-api:
+        condition: service_started
+      order-api:
+        condition: service_started
+      product-api:
+        condition: service_started
+      payment-service:
+        condition: service_started
     networks:
       - app-network
 
@@ -27,7 +50,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -38,20 +62,22 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
   # Order API
   order-api:
-    image: antonmalm/charlie-order-api:v20241217121856
+    image: antonmalm/charlie-order-api:latest
     container_name: order-api
     ports:
       - "5002:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -62,7 +88,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -75,7 +102,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -86,7 +114,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
@@ -97,20 +126,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - rabbitmq-service
-    networks:
-      - app-network
-
-  # RabbitMQ Service
-  rabbitmq-service:
-    image: rabbitmq:3-management
-    container_name: rabbitmq-container
-    ports:
-      - "5672:5672"   # RabbitMQ connection
-      - "15672:15672" # Management console
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+      rabbitmq-service:
+        condition: service_healthy
     networks:
       - app-network
 
