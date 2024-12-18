@@ -9,7 +9,7 @@
           "Port": 8080
         }
       ],
-      "UpstreamPathTemplate": "/product",
+      "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [ "Get", "Post" ]
     },
     {
