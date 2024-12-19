@@ -76,13 +76,4 @@ http://localhost:5000
   `http://localhost:5000/customers/{id}`
 
 
-### Payments
-
-- **POST /payments**  
-  **Description:** Creates a new payment.  
-  `http://localhost:5000/payments`
-
-- **GET /payments/{id}**  
-  **Description:** Retrieves a payment by ID.  
- `http://localhost:5000/payments/{id}`
 
