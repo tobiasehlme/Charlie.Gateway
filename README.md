@@ -2,11 +2,25 @@
 
 # Team Charlie
 
-```
-[Charlie.Customer.API](https://github.com/FiggeAhlberg/Charlie.Customer.API)
-[Charlie.Customer](https://github.com/FiggeAhlberg/Charlie.Customer)
 
-```
+## Links
+
+Figge:
+- [Charlie.Customer.API](https://github.com/FiggeAhlberg/Charlie.Customer.API)
+- [Charlie.Customer](https://github.com/FiggeAhlberg/Charlie.Customer)
+
+Philip:
+- [Charlie.Products.API](https://github.com/MrFrolin/Charlie.Product.API)
+- [Charlie.Products](https://github.com/MrFrolin/Charlie.Product)
+  
+Anton:
+
+- [Charlie.Orders.API](https://github.com/AntonMalm/Charlie.Order.API)
+- [Charlie.Orders](https://github.com/AntonMalm/Charlie.Order)
+
+Tobias
+
+- [Charlie.Orders](https://github.com/tobiasehlme/Charlie.Payment)
 
 # API Documentation for Charlie.Gateway (Ocelot Gateway)
 
