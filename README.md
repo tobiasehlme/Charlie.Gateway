@@ -1,5 +1,13 @@
 # Charlie.Gateway
 
+# Team Charlie
+
+```
+[Charlie.Customer.API](https://github.com/FiggeAhlberg/Charlie.Customer.API)
+[Charlie.Customer](https://github.com/FiggeAhlberg/Charlie.Customer)
+
+```
+
 # API Documentation for Charlie.Gateway (Ocelot Gateway)
 
 This document provides an overview of the API routes configured in the Ocelot gateway.
