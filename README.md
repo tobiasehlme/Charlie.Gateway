@@ -1,5 +1,15 @@
 # Charlie.Gateway
 
+# API Documentation for Charlie.Gateway (Ocelot Gateway)
+
+This document provides an overview of the API routes configured in the Ocelot gateway.
+
+## Base URL
+All routes are prefixed with the following base URL:
+
+```
+http://localhost:5000
+```
 
 ## Routes
 
