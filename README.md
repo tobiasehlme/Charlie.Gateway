@@ -2,6 +2,16 @@
 
 # Team Charlie
 
+# Charlie.Gateway
+
+# Team Charlie
+
+## How to run
+1. Clone this repository.
+2. Through the terminal, run:  
+   ```bash
+   docker-compose up --build
+   
 
 ## Links
 
