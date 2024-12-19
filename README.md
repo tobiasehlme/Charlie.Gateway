@@ -41,42 +41,42 @@ http://localhost:5000
 
 - **POST /products**  
   **Description:** Creates a new product.  
-  **Downstream Service:** `http://localhost:5000/api/products`
+  `http://localhost:5000/products`
 
 - **GET /products/{id}**  
   **Description:** Retrieves a product by ID.  
-  **Downstream Service:** `http://localhost:5000/api/products/{id}`
+  `http://localhost:5000/products/{id}`
 
 
 ### Orders
 
 - **POST /orders**  
   **Description:** Creates a new order.  
-  **Downstream Service:** `http://localhost:5000/api/orders`
+ `http://localhost:5000/orders`
 
 - **GET /orders/{id}**  
   **Description:** Retrieves an order by ID.  
-  **Downstream Service:** `http://localhost:5000/api/orders/{id}`
+  `http://localhost:5000/orders/{id}`
 
 
 ### Customers
 
 - **POST /customers**  
   **Description:** Creates a new customer.  
-  **Downstream Service:** `http://localhost:5000/api/customers`
+  `http://localhost:5000/customers`
 
 - **GET /customers/{id}**  
   **Description:** Retrieves a customer by ID.  
-  **Downstream Service:** `http://localhost:5000/api/customers/{id}`
+  `http://localhost:5000/customers/{id}`
 
 
 ### Payments
 
 - **POST /payments**  
   **Description:** Creates a new payment.  
-  **Downstream Service:** `http://localhost:5000/api/payments`
+  `http://localhost:5000/payments`
 
 - **GET /payments/{id}**  
   **Description:** Retrieves a payment by ID.  
-  **Downstream Service:** `http://localhost:5000/api/payments/{id}`
+ `http://localhost:5000/payments/{id}`
 
