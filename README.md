@@ -20,7 +20,7 @@ Anton:
 
 Tobias
 
-- [Charlie.Orders](https://github.com/tobiasehlme/Charlie.Payment)
+- [Charlie.Payment](https://github.com/tobiasehlme/Charlie.Payment)
 
 # API Documentation for Charlie.Gateway (Ocelot Gateway)
 
