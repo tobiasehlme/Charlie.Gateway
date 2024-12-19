@@ -10,13 +10,13 @@ Figge:
 - [Charlie.Customer](https://github.com/FiggeAhlberg/Charlie.Customer)
 
 Philip:
-- [Charlie.Products.API](https://github.com/MrFrolin/Charlie.Product.API)
-- [Charlie.Products](https://github.com/MrFrolin/Charlie.Product)
+- [Charlie.Product.API](https://github.com/MrFrolin/Charlie.Product.API)
+- [Charlie.Product](https://github.com/MrFrolin/Charlie.Product)
   
 Anton:
 
-- [Charlie.Orders.API](https://github.com/AntonMalm/Charlie.Order.API)
-- [Charlie.Orders](https://github.com/AntonMalm/Charlie.Order)
+- [Charlie.Order.API](https://github.com/AntonMalm/Charlie.Order.API)
+- [Charlie.Order](https://github.com/AntonMalm/Charlie.Order)
 
 Tobias
 
